@@ -100,8 +100,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "peixotech-customer:build:production",
+            "firebaseProject": "peixotech-db",
+            "firebaseHostingSite": "peixotech-db"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

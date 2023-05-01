@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "peixotech-db": {
+      "hosting": {
+        "peixotech-customer": [
+          "peixotech-db"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "peixotech-db"
+  }
+}
