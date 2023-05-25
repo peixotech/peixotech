@@ -1,0 +1,14 @@
+<div class="px-5 py-7">
+    <form [formGroup]="form">
+        <label class="font-semibold text-sm text-gray-600 pb-1 block">E-mail</label>
+        <input formControlName="email" type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+
+        <label class="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
+        <input formControlName="password" type="password"
+            class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+
+        <button type="button" (click)="login()" [disabled]="!form.valid"
+            class="disabled:bg-gray-300 disabled:text-black transition duration-200 bg-primary-500 hover:bg-primary-600 focus:bg-primary-700 focus:shadow-sm focus:ring-4 focus:ring-primary-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">Login
+        </button>
+    </form>
+</div>
