@@ -1,0 +1,12 @@
+<div class="h-full bg-gray-100 flex flex-col justify-center items-center sm:py-12">
+    <div class="p-10 flex flex-col justify-center items-center gap-10">
+        <img src="assets/logo_black.png">
+        <div class="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
+            <div class="px-5 pt-6 pb-3">
+                <a [routerLink]="['/login']" class="font-normal text-sm text-[#808080]">
+                    << Voltar</a>
+            </div>
+            <app-register-box (emitRegister)="register($event)"></app-register-box>
+        </div>
+    </div>
+</div>

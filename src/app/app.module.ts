@@ -8,6 +8,11 @@ import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { HeaderComponent } from './libs/header/header.component';
+import { IAuthService } from 'src/data/interfaces/auth.interface';
+import { AuthService } from './libs/services/auth.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [
@@ -17,11 +22,16 @@ import { HeaderComponent } from './libs/header/header.component';
     BrowserModule,
     AppRoutingModule,
     HeaderComponent,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [
+    { provide: IAuthService, useClass: AuthService },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

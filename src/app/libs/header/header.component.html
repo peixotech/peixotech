@@ -2,11 +2,22 @@
     <div class="container flex flex-col items-center justify-between p-6 mx-auto md:flex-row">
         <img src="assets/logo.png">
         <nav class="flex flex-wrap items-center justify-center pl-6 ml-6 text-base border-l border-gray-200 md:mr-auto">
-            <a href="" class="mr-5 font-medium hover:text-[#d1d1d1]">Home</a>
-            <a href="" class="mr-5 font-medium hover:text-[#d1d1d1]">Chamados</a>
+            <a [routerLink]="['/home']" class="mr-5 font-medium hover:text-[#d1d1d1]">Home</a>
+            <a [routerLink]="['/chamados']" class="mr-5 font-medium hover:text-[#d1d1d1]">Chamados</a>
         </nav>
-        <div class="items-center h-full">
-            <a href="/login" class="mr-5 font-medium hover:text-[#d1d1d1]">Login</a>
-        </div>
+
+        <ng-container *ngIf="userData; else notLogged">
+            <div class="items-center h-full">
+                <span class="mr-5 font-medium">{{userData.displayName}}</span>
+                <a (click)="logout()" class="cursor-pointer mr-5 font-medium hover:text-[#d1d1d1]"><i
+                        class="bi bi-box-arrow-right"></i></a>
+            </div>
+        </ng-container>
+
+        <ng-template #notLogged>
+            <div class="items-center h-full">
+                <a [routerLink]="['/login']" class="mr-5 font-medium hover:text-[#d1d1d1]">Login</a>
+            </div>
+        </ng-template>
     </div>
 </header>

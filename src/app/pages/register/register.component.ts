@@ -1,31 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginBoxComponent } from 'src/app/libs/login-box/login-box.component';
+import { RegisterBoxComponent } from 'src/app/libs/register-box/register-box.component';
 import { Router, RouterModule } from '@angular/router';
 import { AuthModel } from 'src/data/models/auth.model';
 import { IAuthService } from 'src/data/interfaces/auth.interface';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, LoginBoxComponent, RouterModule],
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  imports: [CommonModule, RegisterBoxComponent, RouterModule],
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class LoginComponent {
+export class RegisterComponent {
 
   constructor(
     private auth: IAuthService,
     private router: Router,
   ) { }
 
-  async login(event: AuthModel) {
+  async register(event: AuthModel) {
     console.log(event);
-    const result = await this.auth.login(event)
-    if (result?.user) {
+    const result = await this.auth.register(event)
+    if (result === true) {
       Swal.fire({
-        title: 'Login bem sucedido',
+        title: 'Usuário criado com sucesso',
         text: 'Você será redirecionado para a página inicial',
         icon: 'success',
       })
@@ -40,5 +40,4 @@ export class LoginComponent {
       })
     }
   }
-
 }

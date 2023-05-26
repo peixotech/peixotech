@@ -1,0 +1,32 @@
+<div class="px-5 pb-7">
+    <h1 class="font-bold text-xl text-center mb-8">Cadastro</h1>
+    <form [formGroup]="form">
+        <div class="w-96">
+            <label class="font-semibold text-sm text-gray-600 pb-1 block">Nome completo</label>
+            <input formControlName="fullName" type="text"
+                class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+        </div>
+
+        <div class="w-96">
+            <label class="font-semibold text-sm text-gray-600 pb-1 block">E-mail</label>
+            <input formControlName="email" type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+        </div>
+
+        <div class="w-96">
+            <label class="font-semibold text-sm text-gray-600 pb-1 block">Senha</label>
+            <input formControlName="password" type="password"
+                class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+        </div>
+
+        <div class="w-96">
+            <label class="font-semibold text-sm text-gray-600 pb-1 block">Confirme sua senha</label>
+            <input formControlName="confirmPassword" type="password"
+                class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+        </div>
+
+        <button type="button" (click)="register()" [disabled]="!form.valid"
+            class="disabled:bg-gray-300 disabled:text-black transition duration-200 bg-primary-500 hover:bg-primary-600 focus:bg-primary-700 focus:shadow-sm focus:ring-4 focus:ring-primary-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
+            Cadastrar-se
+        </button>
+    </form>
+</div>
