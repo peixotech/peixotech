@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { checkPasswords } from 'src/app/validators/check-password.validator';
 
 @Component({
   selector: 'app-register-box',
@@ -15,8 +16,10 @@ export class RegisterBoxComponent {
   form: FormGroup = new FormGroup({
     fullName: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required)
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    confirmPassword: new FormControl('')
+  }, {
+    validators: [checkPasswords()]
   });
 
   constructor() { }
