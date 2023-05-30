@@ -8,11 +8,11 @@ import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { HeaderComponent } from './libs/header/header.component';
-import { IAuthService } from 'src/data/interfaces/auth.interface';
-import { AuthService } from './libs/services/auth.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { IAuthService } from 'src/controllers/auth.interface';
+import { AuthService } from 'src/services/auth.service';
 
 @NgModule({
   declarations: [

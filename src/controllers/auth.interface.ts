@@ -1,6 +1,5 @@
-import { Injectable } from "@angular/core";
-import { AuthModel } from "../models/auth.model";
-import { User } from "../models/user.model";
+import { AuthModel } from "src/entities/auth.model";
+import { User } from "src/entities/user.model";
 
 export abstract class IAuthService {
     constructor(

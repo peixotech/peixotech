@@ -1,11 +1,11 @@
-import { IAuthService } from "src/data/interfaces/auth.interface";
-import { AuthModel } from "src/data/models/auth.model";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { User } from "src/data/models/user.model";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Injectable } from "@angular/core";
-import { FIREBASE_AUTH_CODES } from "src/data/constants/firebase-auth-codes";
 import { firstValueFrom, map } from "rxjs";
+import { AuthModel } from "src/entities/auth.model";
+import { User } from "src/entities/user.model";
+import { IAuthService } from 'src/controllers/auth.interface';
+import { AuthError, FIREBASE_AUTH_CODES } from 'src/data/interfaces/auth-error.strategy';
 @Injectable({
     providedIn: 'root',
 })
@@ -79,12 +79,8 @@ export class AuthService implements IAuthService {
     }
 
     formatAuthCodes(code: string): string {
-        code = code.split('/')[1];
-        if (FIREBASE_AUTH_CODES[code]) {
-            return (FIREBASE_AUTH_CODES[code]);
-        } else {
-            return ('Ocorreu algum erro desconhecido! \n Codigo erro: ' + code);
-        }
+        const error: AuthError = new FIREBASE_AUTH_CODES[code.split('/')[1]]();
+        return error.msg();
     }
 
     async logout() {

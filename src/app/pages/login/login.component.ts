@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginBoxComponent } from 'src/app/libs/login-box/login-box.component';
 import { Router, RouterModule } from '@angular/router';
-import { AuthModel } from 'src/data/models/auth.model';
-import { IAuthService } from 'src/data/interfaces/auth.interface';
 import Swal from 'sweetalert2';
+import { IAuthService } from 'src/controllers/auth.interface';
+import { AuthModel } from 'src/entities/auth.model';
 
 @Component({
   selector: 'app-login',

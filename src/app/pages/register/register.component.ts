@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegisterBoxComponent } from 'src/app/libs/register-box/register-box.component';
 import { Router, RouterModule } from '@angular/router';
-import { AuthModel } from 'src/data/models/auth.model';
-import { IAuthService } from 'src/data/interfaces/auth.interface';
 import Swal from 'sweetalert2';
+import { IAuthService } from 'src/controllers/auth.interface';
+import { AuthModel } from 'src/entities/auth.model';
 
 @Component({
   selector: 'app-register',

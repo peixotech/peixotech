@@ -16,6 +16,8 @@
             <label class="font-semibold text-sm text-gray-600 pb-1 block">Senha</label>
             <input formControlName="password" type="password"
                 class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+            <span class="text-red-500 text-xs" *ngIf="form.get('password')?.value.length < 6">A senha precisa ter no
+                mínimo 6 caracteres</span>
         </div>
 
         <div class="w-96">
