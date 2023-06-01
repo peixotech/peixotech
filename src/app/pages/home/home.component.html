@@ -1,1 +1,10 @@
-<p>home works!</p>
+<div class="flex flex-row justify-between gap-3 w-100 px-12 mt-14">
+    <app-card></app-card>
+    <app-card title="Seus chamados" [count]="0"></app-card>
+    <app-card></app-card>
+</div>
+
+<div class="w-100 px-12 pt-3 mt-7">
+    <h1 class="text-2xl font-medium mb-12">Últimos Chamados</h1>
+    <app-chamados-table></app-chamados-table>
+</div>
