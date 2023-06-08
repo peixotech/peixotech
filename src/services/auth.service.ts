@@ -26,6 +26,7 @@ export class AuthService implements IAuthService {
                 console.log('Login!', Date.now());
                 JSON.parse(localStorage.getItem('user')!);
             } else {
+                this.userData = null
                 localStorage.setItem('user', 'null');
                 JSON.parse(localStorage.getItem('user')!);
             }

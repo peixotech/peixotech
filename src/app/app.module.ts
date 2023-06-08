@@ -13,6 +13,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { IAuthService } from 'src/controllers/auth.interface';
 import { AuthService } from 'src/services/auth.service';
+import { IChamadoService } from 'src/controllers/chamado.interface';
+import { ChamadoService } from 'src/services/chamado.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { AuthService } from 'src/services/auth.service';
   ],
   providers: [
     { provide: IAuthService, useClass: AuthService },
+    { provide: IChamadoService, useClass: ChamadoService },
   ],
   bootstrap: [AppComponent]
 })
